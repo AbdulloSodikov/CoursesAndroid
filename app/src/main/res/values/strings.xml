@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="str_loadDataInDB">Идет загрузка информации из БД</string>
+    <string name="str_exit">Выход</string>
+    <string name="str_sign">Войти</string>
+    <string name="str_errorLoginOrPassword">Неправильный логин или пароль</string>
+    <string name="str_notConnectInternet">Отсутствует подключение к интернету</string>
+    <string name="str_login">Введите логин</string>
+    <string name="str_nameLecture">Название лекции</string>
+    <string name="str_datePublished">Дата публикации</string>
 </resources>
