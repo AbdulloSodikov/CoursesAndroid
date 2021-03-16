@@ -53,6 +53,7 @@ public class InfoCoursesLoader extends AsyncTask<Void, Void, Void> {
     protected void onPostExecute(Void result) {
         super.onPostExecute(result);
 //       Назначение данных из  памяти
+
         if(jsonStr.equals("")){
             SharedPreferences prefs = activity.getSharedPreferences("courses", 0);
             activity.titleCourse.setText("Курс: "+ prefs.getString("title",""));
@@ -64,6 +65,7 @@ public class InfoCoursesLoader extends AsyncTask<Void, Void, Void> {
             editor.putString("title", titleCourse);
             editor.putString("mentors", fioMentors);
             editor.apply();
+
             // Назначение данных из  памяти
             SharedPreferences prefs = activity.getSharedPreferences("courses", 0);
             activity.titleCourse.setText("Курс: "+ prefs.getString("title",""));

@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,6 +25,7 @@ public class LecturesLoader extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
+        activity.loadDataInDB.setVisibility(View.VISIBLE);
         activity.lectures = new ArrayList<>();
     }
 
@@ -70,5 +72,6 @@ public class LecturesLoader extends AsyncTask<Void, Void, Void> {
         LecturesAdapter adapter = new LecturesAdapter();
         adapter.activity = activity;
         activity.list.setAdapter(adapter);
+        activity.loadDataInDB.setVisibility(View.INVISIBLE);
     }
 }

@@ -21,7 +21,7 @@ public class LecturesActivity extends AppCompatActivity {
     Button exit;
     LecturesActivity activity;
     public LecturesDatabase db;
-    TextView titleCourse, mentors;
+    TextView titleCourse, mentors, loadDataInDB;
     public String loginToken;
 
     @Override
@@ -35,6 +35,7 @@ public class LecturesActivity extends AppCompatActivity {
         activity = this;
         list = findViewById(R.id.list);
         exit = findViewById(R.id.exit);
+        loadDataInDB = findViewById(R.id.tv_loadDataInDB);
 
         SharedPreferences prefs = getSharedPreferences("courses", 0);
         loginToken = prefs.getString("token","");
