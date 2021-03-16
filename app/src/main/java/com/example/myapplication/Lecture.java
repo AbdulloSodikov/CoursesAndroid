@@ -6,4 +6,7 @@ public class Lecture {
     public String photo;
     public String video;
     public String shownotes;
+    public String courses;
+    public String fioMentors;
+
 }

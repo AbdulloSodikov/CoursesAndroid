@@ -25,7 +25,6 @@ public class LoadToken extends AsyncTask<Void, Void, Void> {
         activity.loading.setVisibility(View.VISIBLE);
     }
 
-
     @Override
     protected Void doInBackground(Void... arg0) {
         HTTPHandler sh = new HTTPHandler();

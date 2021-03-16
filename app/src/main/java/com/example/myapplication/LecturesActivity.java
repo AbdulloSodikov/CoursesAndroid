@@ -21,6 +21,8 @@ public class LecturesActivity extends AppCompatActivity {
     Button exit;
     LecturesActivity activity;
     public LecturesDatabase db;
+    TextView titleCourse, mentors;
+    public String loginToken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,16 +30,25 @@ public class LecturesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lectures);
         db = new LecturesDatabase(this);
 
+        titleCourse = findViewById(R.id.tv_title_courses);
+        mentors = findViewById(R.id.tv_name_mentors);
         activity = this;
         list = findViewById(R.id.list);
         exit = findViewById(R.id.exit);
 
+        InfoCoursesLoader infoLoader = new InfoCoursesLoader();
+        infoLoader.activity = this;
+        infoLoader.execute();
+
         SharedPreferences prefs = getSharedPreferences("courses", 0);
+        loginToken = prefs.getString("token","");
+        titleCourse.setText(prefs.getString("title",""));
+        mentors.setText(prefs.getString("mentors",""));
+
 
         //Вывод строками
         LinearLayoutManager layoutManager = new LinearLayoutManager(activity.getApplicationContext(), LinearLayoutManager.VERTICAL,false);
         activity.list.setLayoutManager(layoutManager);
-
 
         LecturesLoader loader = new LecturesLoader();
         loader.activity = this;
