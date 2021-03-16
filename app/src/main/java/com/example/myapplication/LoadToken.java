@@ -67,6 +67,7 @@ public class LoadToken extends AsyncTask<Void, Void, Void> {
                 Intent intent = new Intent(activity.getApplicationContext(), LecturesActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 activity.getApplicationContext().startActivity(intent);
+                activity.error.setVisibility(View.INVISIBLE);
             }
         }
     }

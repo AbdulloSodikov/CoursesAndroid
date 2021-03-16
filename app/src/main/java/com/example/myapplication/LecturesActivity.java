@@ -36,14 +36,14 @@ public class LecturesActivity extends AppCompatActivity {
         list = findViewById(R.id.list);
         exit = findViewById(R.id.exit);
 
+        SharedPreferences prefs = getSharedPreferences("courses", 0);
+        loginToken = prefs.getString("token","");
+
+
+
         InfoCoursesLoader infoLoader = new InfoCoursesLoader();
         infoLoader.activity = this;
         infoLoader.execute();
-
-        SharedPreferences prefs = getSharedPreferences("courses", 0);
-        loginToken = prefs.getString("token","");
-        titleCourse.setText(prefs.getString("title",""));
-        mentors.setText(prefs.getString("mentors",""));
 
 
         //Вывод строками
@@ -61,8 +61,7 @@ public class LecturesActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = activity.getSharedPreferences("courses", 0).edit();
                 editor.putString("token", "");
                 editor.apply();
-
-                Intent intent = new Intent(activity.getApplicationContext(), MainActivity.class);
+                 Intent intent = new Intent(activity.getApplicationContext(), MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 activity.getApplicationContext().startActivity(intent);
             }
